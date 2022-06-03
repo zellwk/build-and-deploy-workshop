@@ -1,10 +1,28 @@
 ---
 import Base from '../layout/Base.astro'
+import { Markdown } from 'astro/components'
 ---
+<style>
+  img {max-width: 100%}
+</style>
 
 <Base title="Hello">
-  <h1>Hello World 12345</h1>
+  <h1>Build and Deploy Session 1</h1>
+  <p>Here is our group photo!</p>
+
+  <img src="/images/group-photo.png" alt="Group photo from the first session of Build and Deploy">
+
   <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam placeat fugit dignissimos cumque nihil neque odit, sit et quasi non quia quae earum ea beatae laboriosam adipisci magni commodi illo!</p>
+
+  <Markdown>
+    ## Write some markdown here
+
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam placeat fugit dignissimos cumque nihil neque odit, sit et quasi non quia quae earum ea beatae laboriosam adipisci magni commodi illo!
+
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam placeat fugit dignissimos cumque nihil neque odit, sit et quasi non quia quae earum ea beatae laboriosam adipisci magni commodi illo!
+
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam placeat fugit dignissimos cumque nihil neque odit, sit et quasi non quia quae earum ea beatae laboriosam adipisci magni commodi illo!
+  </Markdown>
 </Base>
 
 
