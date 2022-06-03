@@ -1,9 +1,12 @@
 ---
 layout: ../layout/BasicPage.astro
+setup: import Card from '../components/Card.astro'
 title: Basic Page
 ---
 
-Content here.
+<Card title="Hello world 2">
+  Content here.
+</Card>
 
 ## Subtitle Title
 

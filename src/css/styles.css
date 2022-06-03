@@ -1,0 +1,9 @@
+@import './reset.css';
+
+:root {
+  --color: red;
+}
+
+p {
+  color: var(--color);
+}
