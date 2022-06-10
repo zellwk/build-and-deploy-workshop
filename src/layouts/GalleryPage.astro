@@ -1,0 +1,20 @@
+---
+import Base from './Base/Base.astro'
+const props = Astro.props
+const { title, images } = props
+let imageURLs = images.map(image => {
+  return `/images/photos/${image}`
+})
+---
+
+<Base {...props}>
+  <div class="wrap">
+    <h1>{title}</h1>
+
+    <div class="grid">
+    {imageURLs.map(url => (
+      <img src={url} alt="" />
+    ))}
+    </div>
+  </div>
+</Base>

@@ -5,5 +5,9 @@
 }
 
 p {
-  color: var(--color);
+  max-width: 35rem;
+}
+
+img {
+  max-width: 100%;
 }

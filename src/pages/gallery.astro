@@ -1,0 +1,21 @@
+---
+import Gallery from '../layouts/GalleryPage.astro'
+const title = 'Gallery Page'
+const images = [
+  'wolverine.png',
+  'john.png',
+  'bill.png',
+  'christopher.png',
+  'tim.png'
+]
+---
+
+<style>
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 1em;
+  }
+</style>
+
+<Gallery {title} {images}></Gallery>

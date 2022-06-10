@@ -1,0 +1,12 @@
+---
+import Base from './Base/Base.astro'
+const props = Astro.props.content
+const { title } = props
+---
+
+<Base {...props}>
+  <div class="wrap">
+    <h1>{title}</h1>
+    <slot>Default Content</slot>
+  </div>
+</Base>
