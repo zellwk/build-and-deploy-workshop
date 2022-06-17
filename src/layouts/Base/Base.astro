@@ -1,6 +1,7 @@
 ---
 import '../../css/styles.css'
 import Head from './Head.astro'
+import Nav from '../../components/Nav.astro'
 const props = Astro.props
 ---
 
@@ -13,18 +14,7 @@ const props = Astro.props
 
 <body>
   <header class="site-header">
-    <nav>
-      <ul>
-        <li>
-          <a href="/">Home</a>
-          <a href="/about">About</a>
-          <a href="/contact">Contact</a>
-          <a href="/basic">Basic</a>
-          <a href="/blog">Blog</a>
-          <a href="/gallery">Gallery</a>
-        </li>
-      </ul>
-    </nav>
+    <Nav />
   </header>
 
   <slot>This is the default message</slot>

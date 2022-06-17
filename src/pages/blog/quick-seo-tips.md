@@ -3,6 +3,7 @@ layout: '../../layouts/BlogPost.astro'
 title: Quick SEO Tips
 description: Some quick SEO Tips
 imageURL: 'somewhere.jpg'
+date: 2022-06-17
 ---
 
 {frontmatter.description}

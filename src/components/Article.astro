@@ -1,0 +1,10 @@
+---
+import {readableDate} from '../utilities/blog.js'
+const {post} = Astro.props
+---
+<article>
+  <h2>
+    {readableDate(new Date(post.frontmatter.date))}
+    <a href={post.url}> {post.frontmatter.title} </a>
+  </h2>
+</article>
