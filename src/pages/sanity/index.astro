@@ -1,0 +1,15 @@
+---
+import {fetch} from '../../utilities/sanity.js'
+const query = '*[_type == "blogPost"]'
+const posts = await fetch(query)
+---
+
+<h1>Posts from Sanity</h1>
+<ul>
+  {posts.map(post => (
+    <li>
+      <a href={'/sanity/' + post.slug}>{post.title}</a>
+    </li>
+
+  ))}
+</ul>

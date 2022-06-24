@@ -1,0 +1,26 @@
+---
+import {fetch} from '../../utilities/sanity.js'
+import {toHTML} from '@portabletext/to-html'
+
+export async function getStaticPaths() {
+  const query = '*[_type == "blogPost"]'
+  const posts = await fetch(query)
+
+  const paths = posts.map(post => {
+    return {
+      params: {slug: post.slug},
+      props: {post}
+    }
+  })
+
+  return paths
+}
+
+const { slug } = Astro.params
+const { post } = Astro.props
+// const postBody = toHTML(post.body[0])
+// console.log(postBody)
+---
+
+<h1>{post.title}</h1>
+<p>{post.slug}</p>
