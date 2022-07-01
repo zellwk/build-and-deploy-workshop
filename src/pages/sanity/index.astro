@@ -8,7 +8,7 @@ const posts = await fetch(query)
 <ul>
   {posts.map(post => (
     <li>
-      <a href={'/sanity/' + post.slug}>{post.title}</a>
+      <a href={'/sanity/' + post.slug.current}>{post.title}</a>
     </li>
 
   ))}

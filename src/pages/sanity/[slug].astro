@@ -1,6 +1,7 @@
 ---
-import {fetch} from '../../utilities/sanity.js'
-import {toHTML} from '@portabletext/to-html'
+import { fetch } from '../../utilities/sanity.js'
+import Base from '../../layouts/Base/Base.astro'
+import PortableText from '../../components/PortableText.svelte'
 
 export async function getStaticPaths() {
   const query = '*[_type == "blogPost"]'
@@ -8,7 +9,7 @@ export async function getStaticPaths() {
 
   const paths = posts.map(post => {
     return {
-      params: {slug: post.slug},
+      params: { slug: post.slug.current },
       props: {post}
     }
   })
@@ -18,9 +19,40 @@ export async function getStaticPaths() {
 
 const { slug } = Astro.params
 const { post } = Astro.props
-// const postBody = toHTML(post.body[0])
-// console.log(postBody)
+
+const query = '*[_type == "blogPost"]'
+const posts = await fetch(query)
+// Sort the post here before finding the index
+const postIndex = posts.findIndex(p => {
+  return p._id === post._id
+})
+
+const previousPost = posts[postIndex -1]
+const nextPost = posts[postIndex + 1]
+
+const previousPostLink = previousPost
+  ? `/sanity/${previousPost.slug.current}`
+  : ''
+
+const nextPostLink = nextPost
+  ? `/sanity/${nextPost.slug.current}`
+  : ''
 ---
 
-<h1>{post.title}</h1>
-<p>{post.slug}</p>
+<Base>
+  <h1>{post.title}</h1>
+  <p>{post.slug.current}</p>
+
+  <PortableText value={post.body}></PortableText>
+
+  <h2>Navigation</h2>
+
+
+  {previousPostLink && (
+    <p><a href={previousPostLink}>{previousPost.title}</a></p>
+  )}
+
+  {nextPostLink && (
+    <p><a href={nextPostLink}>{nextPost.title}</a></p>
+  )}
+</Base>
