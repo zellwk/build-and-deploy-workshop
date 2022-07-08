@@ -6,7 +6,15 @@ import Base from '../layouts/Base/Base.astro'
   <h1>Contact Page</h1>
   <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam placeat fugit dignissimos cumque nihil neque odit, sit et quasi non quia quae earum ea beatae laboriosam adipisci magni commodi illo!</p>
 
-  <form name="contact" netlify>
+  <form name="contact"
+    netlify
+    netlify-honeypot="bot-field"
+  >
+    <p hidden>
+      <label>
+        Don’t fill this out if you’re human: <input name="bot-field" />
+      </label>
+    </p>
     <p>
       <label>Name <input type="text" name="name" /></label>
     </p>
