@@ -5,4 +5,20 @@ import Base from '../layouts/Base/Base.astro'
 <Base title="Contact">
   <h1>Contact Page</h1>
   <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam placeat fugit dignissimos cumque nihil neque odit, sit et quasi non quia quae earum ea beatae laboriosam adipisci magni commodi illo!</p>
+
+  <form name="contact" netlify>
+    <p>
+      <label>Name <input type="text" name="name" /></label>
+    </p>
+    <p>
+      <label>Email <input type="email" name="email" /></label>
+    </p>
+    <p>
+      <label>Message <textarea name="message"></textarea></label>
+    </p>
+    <p>
+      <button type="submit">Send</button>
+    </p>
+</form>
+
 </Base>
