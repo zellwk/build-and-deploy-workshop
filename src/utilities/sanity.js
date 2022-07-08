@@ -13,6 +13,19 @@ export function fetch (query, param = {}) {
   return client.fetch(query, param)
 }
 
-export function getImageUrl (source) {
-  return imageBuilder.image(source).url()
+export function getImageUrl (source, opts = {}) {
+  let part = imageBuilder.image(source)
+
+  if (notEmptyObject(opts)) {
+    Object.entries(opts).forEach(entry => {
+      const [key, value] = entry
+      part = part[key](value) // Does things like part.width(200)
+    })
+  }
+
+  return part.url()
+}
+
+function notEmptyObject (obj) {
+  return Object.keys(obj).length > 0
 }

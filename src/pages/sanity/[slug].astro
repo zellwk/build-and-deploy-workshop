@@ -20,6 +20,10 @@ export async function getStaticPaths() {
 const { slug } = Astro.params
 const { post } = Astro.props
 
+const tags = post.tags.map(tag => tag.value)
+console.log(tags)
+
+// Prev/Next Page Links
 const query = '*[_type == "blogPost"]'
 const posts = await fetch(query)
 // Sort the post here before finding the index
@@ -41,7 +45,25 @@ const nextPostLink = nextPost
 
 <Base>
   <h1>{post.title}</h1>
-  <p>{post.slug.current}</p>
+  <p>Slug: {post.slug.current}</p>
+  <p>Tags: {tags.map((tag, index) => {
+    const link = `/tags/${tag}`
+    const isLastItem = index === tags.length - 1
+
+    if (isLastItem) {
+      return (
+        <a href={link}>{tag}</a>
+      )
+    }
+
+    return (
+      <a href={link}>{tag}</a>
+      <span>, </span>
+    )
+  }
+
+
+  )}</p>
 
   <PortableText value={post.body}></PortableText>
 
