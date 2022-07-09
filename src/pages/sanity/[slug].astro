@@ -20,12 +20,13 @@ export async function getStaticPaths() {
 const { slug } = Astro.params
 const { post } = Astro.props
 
-const tags = post.tags.map(tag => tag.value)
-console.log(tags)
+let tags = []
+if (post.tags) tags = post.tags.map(tag => tag.value)
 
 // Prev/Next Page Links
 const query = '*[_type == "blogPost"]'
 const posts = await fetch(query)
+
 // Sort the post here before finding the index
 const postIndex = posts.findIndex(p => {
   return p._id === post._id
