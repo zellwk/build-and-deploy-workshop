@@ -18,6 +18,21 @@ const props = Astro.props
   </header>
 
   <slot>This is the default message</slot>
+
+  <!-- Algolia Test -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@algolia/algoliasearch-netlify-frontend@1/dist/algoliasearchNetlify.css" />
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@algolia/algoliasearch-netlify-frontend@1/dist/algoliasearchNetlify.js"></script>
+  <script type="text/javascript">
+    algoliasearchNetlify({
+      appId: 'GL530K7CWU',
+      apiKey: '<YOUR_ALGOLIA_SEARCH_API_KEY>',
+      siteId: 'd5439436-4d24-4ff0-aac1-ce89fe916bf4',
+      branch: 'master',
+      selector: 'div#search',
+    });
+  </script>
 </body>
+
+
 
 </html>
