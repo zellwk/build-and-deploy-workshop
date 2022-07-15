@@ -9,13 +9,18 @@
     "preview": "astro preview"
   },
   "devDependencies": {
+    "@astrojs/rss": "^0.2.1",
     "@astrojs/svelte": "^0.1.3",
     "@portabletext/svelte": "^1.0.1",
     "@portabletext/to-html": "^1.0.3",
     "@sanity/client": "^3.3.2",
     "@sanity/image-url": "^1.0.1",
+    "algoliasearch": "^4.13.1",
     "astro": "^1.0.0-beta.35",
     "date-fns": "^2.28.0",
+    "dotenv": "^16.0.1",
+    "glob": "^8.0.3",
+    "jsdom": "^20.0.0",
     "postcss-nested": "^5.0.6",
     "postcss-preset-env": "^7.7.0",
     "postcss-short": "^5.0.0",
